@@ -37,12 +37,31 @@ header h1 {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-around;
   /* display: grid; */
   /* grid-template-columns: repeat(2,1fr); */
 }
+.card-buttons-container {
+    width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.remove-btn {
+  height: 30px;
+  background-color: #fca311;
+  width: 100px;
+  border-radius: 10px;
+}
+.edit-btn {
+  height: 30px;
+  background-color: #fca311;
+  width: 100px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 
+}
 .card-container-new {
   width: 250px;
   height: 300px;
@@ -71,10 +90,11 @@ footer h5 {
 }
 
 .btn-remove {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   align-self: end;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-top: 10px;
 }
 
 /* .test{

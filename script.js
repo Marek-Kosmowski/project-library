@@ -39,7 +39,7 @@ function getBooks() {
 
         title.innerText = 'Title:';
         author.innerText = 'Author:';
-        pages.innerText = 'Pages:';
+        pages.innerText = 'Number of Pages:';
         status.innerText = 'Read/Unread';
         titlePara.innerText = myLibrary[i].title;
         authorPara.innerText = myLibrary[i].author;
