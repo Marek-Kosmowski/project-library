@@ -70,6 +70,13 @@ footer h5 {
   color: #fca311;
 }
 
+.btn-remove {
+  width: 30px;
+  height: 30px;
+  align-self: end;
+  margin-right: 10px;
+}
+
 /* .test{
     background-color: #e5e5e5;
 } */
