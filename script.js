@@ -1,8 +1,7 @@
-const cardContainer = document.querySelector('.card-container');
-const bookTitle = document.querySelector('.card-content-title');
-const bookAuthor = document.querySelector('.card-content-author');
-const bookPages = document.querySelector('.card-content-pages');
-const main = document.querySelector('.main')
+const main = document.querySelector('.main');
+
+
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -23,13 +22,45 @@ const harryPotter = new Book('Harry Potter ', 'J.K. Rowling', '332', 'read');
 let myLibrary = [theHobbit, starWars, harryPotter];
 
 
-function createDiv() {
-    const newDiv = document.createElement("div");
-    newDiv.classList.add('card-container')
-    main.appendChild(newDiv)
+
+
+
+function getBooks() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        const newCard = document.createElement('div');
+        const title = document.createElement('h3');
+        const author = document.createElement('h3');
+        const pages = document.createElement('h3');
+        const status = document.createElement('h3');
+
+        const titlePara = document.createElement('p');
+        const authorPara = document.createElement('p');
+        const pagesPara = document.createElement('p');
+
+        title.innerText = 'Title:';
+        author.innerText = 'Author:';
+        pages.innerText = 'Pages:';
+        status.innerText = 'Read/Unread';
+        titlePara.innerText = myLibrary[i].title;
+        authorPara.innerText = myLibrary[i].author;
+        pagesPara.innerText = myLibrary[i].pages;
+
+        main.appendChild(newCard);
+        newCard.classList.add('card-container-new');
+
+        newCard.appendChild(title);
+        newCard.appendChild(titlePara)
+        newCard.appendChild(author);
+        newCard.appendChild(authorPara);
+        newCard.appendChild(pages);
+        newCard.appendChild(pagesPara);
+        newCard.appendChild(status);
+
+
+
+    }
+
 }
 
 
-for (let i = 0; i < myLibrary.length; i++) {
-    createDiv();
-}
+window.addEventListener('onload', getBooks());
