@@ -29,10 +29,24 @@
             </div>
         </div>
         <div class="new-book-btn-container">
-            <input type="image" src="./img/plus-svgrepo-com.svg" alt="">
+            <input class="new-book-btn" type="image" src="./img/plus-svgrepo-com.svg" alt="">
         </div>
     </div>
-
+    <div class="modal">
+        <div class="modal-content">
+            <form class="modal-form" action="">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author">
+                <label for="pages">Number of Pages:</label>
+                <input type="text" id="pages" name="pages">
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status">
+                <input class="add-book-btn" type="submit" value="Add Book">
+            </form>
+        </div>
+    </div>
     <footer>
         <h5>Made by Marek Kosmowski</h5>
     </footer>

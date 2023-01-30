@@ -1,6 +1,7 @@
 const main = document.querySelector('.main');
-
-
+const modal = document.querySelector('.modal');
+const closeModalBtn = document.querySelector('.close');
+const newBookBtn = document.querySelector('.new-book-btn');
 
 
 function Book(title, author, pages, read) {
@@ -62,6 +63,16 @@ function getBooks() {
     }
 
 }
+
+
+newBookBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+})
+
+// closeModalBtn.addEventListener('click', () => {
+//     modal.style.display = 'none';
+// })
+
 
 
 window.addEventListener('onload', getBooks());
