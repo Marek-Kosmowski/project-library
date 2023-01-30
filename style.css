@@ -25,7 +25,10 @@ header h1 {
   grid-row-start: 2;
   background-color: #fca311;
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  overflow-y: scroll;
 }
 
 .card-container {
@@ -85,6 +88,13 @@ header h1 {
   transform: scale(1.1);
   box-shadow: none;
 }
+
+.new-book-btn-container {
+  align-self: center;
+  justify-self: center;
+}
+
+
 
 footer {
   grid-row-start: 3;

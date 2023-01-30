@@ -18,8 +18,9 @@ function Book(title, author, pages, read) {
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '467', 'read');
 const starWars = new Book('Star Wars-Thrawn', 'Zahn Timothy', '877', 'read');
 const harryPotter = new Book('Harry Potter ', 'J.K. Rowling', '332', 'read');
+const javaScript = new Book('JavaScript 2000', 'Moff Gideon', '987', 'read');
 
-let myLibrary = [theHobbit, starWars, harryPotter];
+let myLibrary = [theHobbit, starWars, harryPotter, javaScript];
 
 
 
