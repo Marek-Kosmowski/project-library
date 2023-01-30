@@ -143,7 +143,6 @@ footer h5 {
 }
 .modal-form {
   height: 100%;
-  /* width: 20%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -151,14 +150,15 @@ footer h5 {
 }
 .modal-form input {
   border-radius: 10px;
-  height: 30px;
-  /* width: 250px; */
+  height: 20px;
+  border: 2px solid #fca311;
 }
 
-.add-book-btn {
+input.add-book-btn {
   margin-top: 5px;
   padding: 5px;
   width: 110px;
+  height: 30px;
   background-color: #fca311;
   color: #14213d;
   border-radius: 20px;
