@@ -2,7 +2,11 @@ const main = document.querySelector('.main');
 const modal = document.querySelector('.modal');
 const closeModalBtn = document.querySelector('.close');
 const newBookBtn = document.querySelector('.new-book-btn');
-
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const pagesInput = document.querySelector('#pages');
+const statusInput = document.querySelector('#status');
+const addBookBtn = document.querySelector('.add-book-btn');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -15,7 +19,6 @@ function Book(title, author, pages, read) {
 }
 
 // console.log(theHobbit.info())
-// function addBookToLibrary() {}
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '467', 'read');
 const starWars = new Book('Star Wars-Thrawn', 'Zahn Timothy', '877', 'read');
 const harryPotter = new Book('Harry Potter ', 'J.K. Rowling', '332', 'read');
@@ -57,12 +60,24 @@ function getBooks() {
         newCard.appendChild(pages);
         newCard.appendChild(pagesPara);
         newCard.appendChild(status);
-
-
-
     }
 
 }
+
+
+
+function addBookToLibrary() {
+    // Book.title = titleInput.value;
+    // Book.author = authorInput.value;
+    // Book.pages = pagesInput.value;
+    // Book.read = statusInput.value;
+    // myLibrary.push()
+    // e.preventDefault()
+    const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value);
+    myLibrary.push(newBook);
+
+}
+
 
 
 newBookBtn.addEventListener('click', () => {
@@ -73,6 +88,14 @@ newBookBtn.addEventListener('click', () => {
 //     modal.style.display = 'none';
 // })
 
+// addBookBtn.addEventListener('click', addBookToLibrary());
 
+addBookBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value);
+    myLibrary.push(newBook);
+    console.log(myLibrary);
+    modal.style.display = 'none';
+})
 
-window.addEventListener('onload', getBooks());
+// window.addEventListener('onload', getBooks());
