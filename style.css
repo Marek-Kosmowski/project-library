@@ -98,6 +98,11 @@ header h1 {
 .new-book-btn-container {
   align-self: center;
   justify-self: center;
+  transition: 0.5s;
+}
+.new-book-btn-container:hover {
+  transform: rotate(180deg) scale(1.5);
+  /* transform: scale(1.1); */
 }
 
 footer {
