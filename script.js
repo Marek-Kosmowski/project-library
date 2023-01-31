@@ -34,7 +34,7 @@ function deleteBook(el) {
     const removeBook = el.target.closest('.card-container-new');
     removeBook.remove();
 }
-
+//change status of the Book if its READ or NOT and add class to specific status
 function readStatus() {
     if (bookStatus.innerHTML === 'UNREAD') {
         bookStatus.innerHTML = 'READ';
