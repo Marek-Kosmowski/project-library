@@ -8,6 +8,9 @@ const pagesInput = document.querySelector('#pages');
 const statusInput = document.querySelector('#status');
 const addBookBtn = document.querySelector('.add-book-btn');
 
+const removeBookBtn = document.querySelector('.remove-btn')
+
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -27,6 +30,20 @@ const javaScript = new Book('JavaScript 2000', 'Moff Gideon', '987', 'read');
 let myLibrary = [theHobbit, starWars, harryPotter, javaScript];
 
 
+function deleteBook(el) {
+    const removeItem = el.target.closest('.card-container-new');
+    removeItem.remove();
+}
+
+function checkClass(el) {
+    if (el.target.closest('input').classList.contains('remove-btn')) {
+        deleteBook(el);
+    } else {
+        console.log('error');
+    }
+}
+
+
 
 function createBook() {
     const newCard = document.createElement('div');
@@ -34,6 +51,13 @@ function createBook() {
     const author = document.createElement('h3');
     const pages = document.createElement('h3');
     const status = document.createElement('h3');
+
+    const btnContainer = document.createElement('div');
+    btnContainer.classList.add('card-buttons-container');
+    const removeBtn = document.createElement('input');
+    removeBtn.type = 'image';
+    removeBtn.classList.add('remove-btn');
+    removeBtn.src = './img/trash-can-outline.svg';
 
     const titlePara = document.createElement('p');
     const authorPara = document.createElement('p');
@@ -60,43 +84,54 @@ function createBook() {
     newCard.appendChild(pages);
     newCard.appendChild(pagesPara);
     newCard.appendChild(status);
+    newCard.appendChild(btnContainer);
+    btnContainer.appendChild(removeBtn);
 }
 
 
 
-// function getBooks() {
-//     for (let i = 0; i < myLibrary.length; i++) {
-//         const newCard = document.createElement('div');
-//         const title = document.createElement('h3');
-//         const author = document.createElement('h3');
-//         const pages = document.createElement('h3');
-//         const status = document.createElement('h3');
+function getBooks() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        const newCard = document.createElement('div');
+        const title = document.createElement('h3');
+        const author = document.createElement('h3');
+        const pages = document.createElement('h3');
+        const status = document.createElement('h3');
 
-//         const titlePara = document.createElement('p');
-//         const authorPara = document.createElement('p');
-//         const pagesPara = document.createElement('p');
+        const btnContainer = document.createElement('div');
+        btnContainer.classList.add('card-buttons-container');
+        const removeBtn = document.createElement('input');
+        removeBtn.type = 'image';
+        removeBtn.classList.add('remove-btn');
+        removeBtn.src = './img/trash-can-outline.svg';
 
-//         title.innerText = 'Title:';
-//         author.innerText = 'Author:';
-//         pages.innerText = 'Number of Pages:';
-//         status.innerText = 'Read/Unread';
-//         titlePara.innerText = myLibrary[i].title;
-//         authorPara.innerText = myLibrary[i].author;
-//         pagesPara.innerText = myLibrary[i].pages;
+        const titlePara = document.createElement('p');
+        const authorPara = document.createElement('p');
+        const pagesPara = document.createElement('p');
 
-//         main.appendChild(newCard);
-//         newCard.classList.add('card-container-new');
+        title.innerText = 'Title:';
+        author.innerText = 'Author:';
+        pages.innerText = 'Number of Pages:';
+        status.innerText = 'Read/Unread';
+        titlePara.innerText = myLibrary[i].title;
+        authorPara.innerText = myLibrary[i].author;
+        pagesPara.innerText = myLibrary[i].pages;
 
-//         newCard.appendChild(title);
-//         newCard.appendChild(titlePara)
-//         newCard.appendChild(author);
-//         newCard.appendChild(authorPara);
-//         newCard.appendChild(pages);
-//         newCard.appendChild(pagesPara);
-//         newCard.appendChild(status);
-//     }
+        main.appendChild(newCard);
+        newCard.classList.add('card-container-new');
 
-// }
+        newCard.appendChild(title);
+        newCard.appendChild(titlePara)
+        newCard.appendChild(author);
+        newCard.appendChild(authorPara);
+        newCard.appendChild(pages);
+        newCard.appendChild(pagesPara);
+        newCard.appendChild(status);
+        newCard.appendChild(btnContainer);
+        btnContainer.appendChild(removeBtn);
+    }
+
+}
 
 
 
@@ -129,4 +164,10 @@ addBookBtn.addEventListener('click', (e) => {
 
 })
 
-// window.addEventListener('onload', getBooks());
+// removeBookBtn.addEventListener('click', () => {
+//     console.log('works!')
+// });
+
+main.addEventListener('click', checkClass);
+
+window.addEventListener('onload', getBooks());
