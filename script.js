@@ -8,9 +8,8 @@ const pagesInput = document.querySelector('#pages');
 const statusInput = document.querySelector('#status');
 const addBookBtn = document.querySelector('.add-book-btn');
 
-const removeBookBtn = document.querySelector('.remove-btn')
 
-
+//Book constructor
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -21,7 +20,7 @@ function Book(title, author, pages, read) {
     }
 }
 
-
+//Adding data to myLibrary array
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '467', 'READ');
 const starWars = new Book('Star Wars-Thrawn', 'Zahn Timothy', '877', 'READ');
 const harryPotter = new Book('Harry Potter ', 'J.K. Rowling', '332', 'READ');
@@ -29,12 +28,12 @@ const javaScript = new Book('JavaScript 2000', 'Moff Gideon', '987', 'READ');
 
 let myLibrary = [theHobbit, starWars, harryPotter, javaScript];
 
-
+//remove book function
 function deleteBook(el) {
     const removeItem = el.target.closest('.card-container-new');
     removeItem.remove();
 }
-
+//check if clicked element on the page is input and if it contains 'remove-btn' if it does then do remove book function
 function checkClass(el) {
     if (el.target.closest('input').classList.contains('remove-btn')) {
         deleteBook(el);
@@ -43,7 +42,7 @@ function checkClass(el) {
     }
 }
 
-
+//create new book and display it on a page
 function createBook() {
     const newCard = document.createElement('div');
     const title = document.createElement('h3');
@@ -88,7 +87,7 @@ function createBook() {
     btnContainer.appendChild(removeBtn);
 }
 
-
+//display all the books on the page that exist in myLibrary array 
 function getBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         const newCard = document.createElement('div');
@@ -132,24 +131,23 @@ function getBooks() {
 
 }
 
-
+//function adding new book to the myLibrary array from users input
 function addBookToLibrary() {
     const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value.toUpperCase());
     myLibrary.push(newBook);
 
 }
 
-
+//show modal form on the page for adding books
 newBookBtn.addEventListener('click', () => {
     modal.style.display = 'block';
 })
 
-
+//close modal after clicking Add button on a page, and disable submit form button behaviour 
 addBookBtn.addEventListener('click', (e) => {
     e.preventDefault()
     addBookToLibrary();
     createBook();
-    console.log(myLibrary);
     modal.style.display = 'none';
 
 })
