@@ -21,11 +21,11 @@ function Book(title, author, pages, read) {
     }
 }
 
-// console.log(theHobbit.info())
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '467', 'read');
-const starWars = new Book('Star Wars-Thrawn', 'Zahn Timothy', '877', 'read');
-const harryPotter = new Book('Harry Potter ', 'J.K. Rowling', '332', 'read');
-const javaScript = new Book('JavaScript 2000', 'Moff Gideon', '987', 'read');
+
+const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '467', 'READ');
+const starWars = new Book('Star Wars-Thrawn', 'Zahn Timothy', '877', 'READ');
+const harryPotter = new Book('Harry Potter ', 'J.K. Rowling', '332', 'READ');
+const javaScript = new Book('JavaScript 2000', 'Moff Gideon', '987', 'READ');
 
 let myLibrary = [theHobbit, starWars, harryPotter, javaScript];
 
@@ -42,7 +42,6 @@ function checkClass(el) {
         console.log('error');
     }
 }
-
 
 
 function createBook() {
@@ -71,6 +70,7 @@ function createBook() {
         titlePara.innerText = myLibrary[i].title;
         authorPara.innerText = myLibrary[i].author;
         pagesPara.innerText = myLibrary[i].pages;
+        status.innerText = myLibrary[i].read;
     }
 
 
@@ -87,7 +87,6 @@ function createBook() {
     newCard.appendChild(btnContainer);
     btnContainer.appendChild(removeBtn);
 }
-
 
 
 function getBooks() {
@@ -112,10 +111,10 @@ function getBooks() {
         title.innerText = 'Title:';
         author.innerText = 'Author:';
         pages.innerText = 'Number of Pages:';
-        status.innerText = 'Read/Unread';
         titlePara.innerText = myLibrary[i].title;
         authorPara.innerText = myLibrary[i].author;
         pagesPara.innerText = myLibrary[i].pages;
+        status.innerText = myLibrary[i].read;
 
         main.appendChild(newCard);
         newCard.classList.add('card-container-new');
@@ -134,26 +133,17 @@ function getBooks() {
 }
 
 
-
 function addBookToLibrary() {
-    const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value);
+    const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value.toUpperCase());
     myLibrary.push(newBook);
 
 }
 
-// function displayBooks(){
-//     myLibrary[]
-// }
 
 newBookBtn.addEventListener('click', () => {
     modal.style.display = 'block';
 })
 
-// closeModalBtn.addEventListener('click', () => {
-//     modal.style.display = 'none';
-// })
-
-// addBookBtn.addEventListener('click', addBookToLibrary());
 
 addBookBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -164,9 +154,7 @@ addBookBtn.addEventListener('click', (e) => {
 
 })
 
-// removeBookBtn.addEventListener('click', () => {
-//     console.log('works!')
-// });
+
 
 main.addEventListener('click', checkClass);
 
