@@ -35,27 +35,23 @@ function deleteBook(el) {
     removeBook.remove();
 }
 //change status of the Book if its READ or NOT and add class to specific status
-function readStatus() {
-    if (bookStatus.innerHTML === 'UNREAD') {
-        bookStatus.innerHTML = 'READ';
-        bookStatus.classList.add('read');
-        bookStatus.classList.remove('unread')
+function changeStatus(el) {
+    const changeStatus = el.target.closest('h3');
+    if (changeStatus.innerHTML === 'UNREAD') {
+        changeStatus.innerHTML = 'READ';
+        changeStatus.classList.add('read');
+        changeStatus.classList.remove('unread')
     } else {
-        bookStatus.innerHTML = 'UNREAD';
-        bookStatus.classList.add('unread');
-        bookStatus.classList.remove('add');
+        changeStatus.innerHTML = 'UNREAD';
+        changeStatus.classList.add('unread');
+        changeStatus.classList.remove('add');
     }
 
 }
-
-bookStatus.addEventListener('click', readStatus)
-
 //check if clicked element on the page is input and if it contains 'remove-btn' if it does then do remove book function
 function checkClass(el) {
     if (el.target.closest('input').classList.contains('remove-btn')) {
         deleteBook(el);
-    } else {
-        console.log('error');
     }
 }
 
@@ -66,7 +62,11 @@ function createBook() {
     const author = document.createElement('h3');
     const pages = document.createElement('h3');
     const status = document.createElement('h3');
-
+    if (status.innerHTML !== 'READ') {
+        status.classList.add('read');
+    } else {
+        status.classList.add('unread');
+    }
     const btnContainer = document.createElement('div');
     btnContainer.classList.add('card-buttons-container');
     const removeBtn = document.createElement('input');
@@ -113,6 +113,14 @@ function getBooks() {
         const pages = document.createElement('h3');
         const status = document.createElement('h3');
 
+        if (status.innerHTML !== 'unread') {
+            status.classList.add('read');
+        } else {
+            status.classList.add('unread');
+        }
+
+
+        status.classList.add('status')
         const btnContainer = document.createElement('div');
         btnContainer.classList.add('card-buttons-container');
         const removeBtn = document.createElement('input');
@@ -172,5 +180,5 @@ addBookBtn.addEventListener('click', (e) => {
 
 
 main.addEventListener('click', checkClass);
-
+main.addEventListener('click', changeStatus);
 window.addEventListener('onload', getBooks());
