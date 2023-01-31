@@ -59,8 +59,14 @@ header h1 {
 .remove-btn {
   height: 30px;
   background-color: #fca311;
+  border: 2px solid #14213d;
   width: 100px;
   border-radius: 10px;
+  transition: 0.2s;
+}
+.remove-btn:hover {
+  background-color: #ffc300;
+  border: 2px solid #14213d;
 }
 .edit-btn {
   height: 30px;
@@ -106,14 +112,6 @@ footer {
 
 footer h5 {
   color: #fca311;
-}
-
-.btn-remove {
-  width: 25px;
-  height: 25px;
-  align-self: end;
-  margin-right: 5px;
-  margin-top: 10px;
 }
 
 .modal {
