@@ -28,7 +28,7 @@ header h1 {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .card-container {
@@ -44,8 +44,6 @@ header h1 {
   justify-content: space-around;
   box-shadow: 10px 10px 15px #14213d;
   transition: 0.4s;
-  /* display: grid; */
-  /* grid-template-columns: repeat(2,1fr); */
 }
 .card-container:hover {
   transform: scale(1.1);
@@ -102,7 +100,6 @@ header h1 {
 }
 .new-book-btn-container:hover {
   transform: rotate(180deg) scale(1.5);
-  /* transform: scale(1.1); */
 }
 
 footer {
