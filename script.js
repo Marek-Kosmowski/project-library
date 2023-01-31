@@ -28,57 +28,87 @@ let myLibrary = [theHobbit, starWars, harryPotter, javaScript];
 
 
 
+function createBook() {
+    const newCard = document.createElement('div');
+    const title = document.createElement('h3');
+    const author = document.createElement('h3');
+    const pages = document.createElement('h3');
+    const status = document.createElement('h3');
 
+    const titlePara = document.createElement('p');
+    const authorPara = document.createElement('p');
+    const pagesPara = document.createElement('p');
 
-function getBooks() {
+    title.innerText = 'Title:';
+    author.innerText = 'Author:';
+    pages.innerText = 'Number of Pages:';
+    status.innerText = 'Read/Unread';
     for (let i = 0; i < myLibrary.length; i++) {
-        const newCard = document.createElement('div');
-        const title = document.createElement('h3');
-        const author = document.createElement('h3');
-        const pages = document.createElement('h3');
-        const status = document.createElement('h3');
-
-        const titlePara = document.createElement('p');
-        const authorPara = document.createElement('p');
-        const pagesPara = document.createElement('p');
-
-        title.innerText = 'Title:';
-        author.innerText = 'Author:';
-        pages.innerText = 'Number of Pages:';
-        status.innerText = 'Read/Unread';
         titlePara.innerText = myLibrary[i].title;
         authorPara.innerText = myLibrary[i].author;
         pagesPara.innerText = myLibrary[i].pages;
-
-        main.appendChild(newCard);
-        newCard.classList.add('card-container-new');
-
-        newCard.appendChild(title);
-        newCard.appendChild(titlePara)
-        newCard.appendChild(author);
-        newCard.appendChild(authorPara);
-        newCard.appendChild(pages);
-        newCard.appendChild(pagesPara);
-        newCard.appendChild(status);
     }
 
+
+    main.appendChild(newCard);
+    newCard.classList.add('card-container-new');
+
+    newCard.appendChild(title);
+    newCard.appendChild(titlePara)
+    newCard.appendChild(author);
+    newCard.appendChild(authorPara);
+    newCard.appendChild(pages);
+    newCard.appendChild(pagesPara);
+    newCard.appendChild(status);
 }
 
 
 
+// function getBooks() {
+//     for (let i = 0; i < myLibrary.length; i++) {
+//         const newCard = document.createElement('div');
+//         const title = document.createElement('h3');
+//         const author = document.createElement('h3');
+//         const pages = document.createElement('h3');
+//         const status = document.createElement('h3');
+
+//         const titlePara = document.createElement('p');
+//         const authorPara = document.createElement('p');
+//         const pagesPara = document.createElement('p');
+
+//         title.innerText = 'Title:';
+//         author.innerText = 'Author:';
+//         pages.innerText = 'Number of Pages:';
+//         status.innerText = 'Read/Unread';
+//         titlePara.innerText = myLibrary[i].title;
+//         authorPara.innerText = myLibrary[i].author;
+//         pagesPara.innerText = myLibrary[i].pages;
+
+//         main.appendChild(newCard);
+//         newCard.classList.add('card-container-new');
+
+//         newCard.appendChild(title);
+//         newCard.appendChild(titlePara)
+//         newCard.appendChild(author);
+//         newCard.appendChild(authorPara);
+//         newCard.appendChild(pages);
+//         newCard.appendChild(pagesPara);
+//         newCard.appendChild(status);
+//     }
+
+// }
+
+
+
 function addBookToLibrary() {
-    // Book.title = titleInput.value;
-    // Book.author = authorInput.value;
-    // Book.pages = pagesInput.value;
-    // Book.read = statusInput.value;
-    // myLibrary.push()
-    // e.preventDefault()
     const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value);
     myLibrary.push(newBook);
 
 }
 
-
+// function displayBooks(){
+//     myLibrary[]
+// }
 
 newBookBtn.addEventListener('click', () => {
     modal.style.display = 'block';
@@ -92,10 +122,11 @@ newBookBtn.addEventListener('click', () => {
 
 addBookBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value);
-    myLibrary.push(newBook);
+    addBookToLibrary();
+    createBook();
     console.log(myLibrary);
     modal.style.display = 'none';
+
 })
 
 // window.addEventListener('onload', getBooks());
