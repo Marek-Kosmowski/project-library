@@ -8,6 +8,7 @@ const pagesInput = document.querySelector('#pages');
 const statusInput = document.querySelector('#status');
 const addBookBtn = document.querySelector('.add-book-btn');
 
+const bookStatus = document.querySelector('.status');
 
 //Book constructor
 function Book(title, author, pages, read) {
@@ -30,9 +31,25 @@ let myLibrary = [theHobbit, starWars, harryPotter, javaScript];
 
 //remove book function
 function deleteBook(el) {
-    const removeItem = el.target.closest('.card-container-new');
-    removeItem.remove();
+    const removeBook = el.target.closest('.card-container-new');
+    removeBook.remove();
 }
+
+function readStatus() {
+    if (bookStatus.innerHTML === 'UNREAD') {
+        bookStatus.innerHTML = 'READ';
+        bookStatus.classList.add('read');
+        bookStatus.classList.remove('unread')
+    } else {
+        bookStatus.innerHTML = 'UNREAD';
+        bookStatus.classList.add('unread');
+        bookStatus.classList.remove('add');
+    }
+
+}
+
+bookStatus.addEventListener('click', readStatus)
+
 //check if clicked element on the page is input and if it contains 'remove-btn' if it does then do remove book function
 function checkClass(el) {
     if (el.target.closest('input').classList.contains('remove-btn')) {

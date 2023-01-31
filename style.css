@@ -168,3 +168,10 @@ input.add-book-btn {
 .add-book-btn:hover {
   background-color: #e5e5e5;
 }
+
+.read {
+  color: green;
+}
+.unread {
+  color: red;
+}
