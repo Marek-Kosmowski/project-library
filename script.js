@@ -8,7 +8,6 @@ const pagesInput = document.querySelector('#pages');
 const statusInput = document.querySelector('#status');
 const addBookBtn = document.querySelector('.add-book-btn');
 
-const bookStatus = document.querySelector('.status');
 
 //Book constructor
 function Book(title, author, pages, read) {
@@ -62,11 +61,7 @@ function createBook() {
     const author = document.createElement('h3');
     const pages = document.createElement('h3');
     const status = document.createElement('h3');
-    if (status.innerHTML !== 'READ') {
-        status.classList.add('read');
-    } else {
-        status.classList.add('unread');
-    }
+
     const btnContainer = document.createElement('div');
     btnContainer.classList.add('card-buttons-container');
     const removeBtn = document.createElement('input');
@@ -88,7 +83,11 @@ function createBook() {
         pagesPara.innerText = myLibrary[i].pages;
         status.innerText = myLibrary[i].read;
     }
-
+    if (status.innerHTML === 'UNREAD') {
+        status.classList.add('unread');
+    } else {
+        status.classList.add('read');
+    }
 
     main.appendChild(newCard);
     newCard.classList.add('card-container-new');
@@ -160,7 +159,9 @@ function getBooks() {
 function addBookToLibrary() {
     const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, statusInput.value.toUpperCase());
     myLibrary.push(newBook);
+    if (statusInput.value === 'read') {
 
+    }
 }
 
 //show modal form on the page for adding books
